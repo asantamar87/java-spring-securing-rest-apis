@@ -19,10 +19,6 @@ public class ResolutionInitializer implements SmartInitializingSingleton {
 		this.resolutions.save(new Resolution("Free Solo the Eiffel Tower", "user"));
 		this.resolutions.save(new Resolution("Hang Christmas Lights", "user"));
 
-		/*User user = new User("user",
-				"{bcrypt}$2a$10$MywQEqdZFNIYnx.Ro/VQ0ulanQAl34B5xVjK2I/SDZNVGS5tHQ08W");
-		this.users.save(user);
-*/
 		User user = new User("user", "{bcrypt}$2a$10$3njzOWhsz20aimcpMamJhOnX9Pb4Nk3toq8OO0swIy5EPZnb1YyGe");
 		user.grantAuthority("resolution:read");
 		this.users.save(user);
@@ -34,6 +30,10 @@ public class ResolutionInitializer implements SmartInitializingSingleton {
 		User hasWrite = new User("haswrite", "{bcrypt}$2a$10$3njzOWhsz20aimcpMamJhOnX9Pb4Nk3toq8OO0swIy5EPZnb1YyGe");
 		hasWrite.grantAuthority("resolution:write");
 		this.users.save(hasWrite);
+
+		User admin = new User("admin", "{bcrypt}$2a$10$3njzOWhsz20aimcpMamJhOnX9Pb4Nk3toq8OO0swIy5EPZnb1YyGe");
+		admin.grantAuthority("ROLE_ADMIN");
+		this.users.save(admin);
 	}
 
 
